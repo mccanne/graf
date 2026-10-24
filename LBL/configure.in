@@ -1,0 +1,65 @@
+AC_REVISION([@(#) $Id: configure.in 85 2024-01-31 00:16:36Z leres $ (LBL)])
+dnl
+AC_COPYRIGHT([Copyright (c) 1996, 1997, 2009, 2011, 2024
+    The Regents of the University of California.  All rights reserved.])
+dnl
+dnl Process this file with autoconf to produce a configure script.
+dnl
+
+AC_PREREQ([2.71])
+AC_INIT
+AC_CONFIG_SRCDIR(draw.c)
+
+AC_CANONICAL_TARGET
+
+umask 002
+
+if test -z "$PWD" ; then
+	PWD=`pwd`
+fi
+
+AC_LBL_C_INIT(V_CCOPT, V_INCLS)
+AC_PROG_INSTALL
+
+AC_CHECK_HEADERS(malloc.h)
+
+AC_PATH_X
+if test -z "$no_x" ; then
+	V_INCLS="$V_INCLS -I$x_includes"
+	LIBS="-L$x_libraries $LIBS"
+	if test "$ac_cv_have_run_path" = yes ; then
+		LIBS="-R$x_libraries $LIBS"
+	fi
+fi
+
+AC_LBL_LEX_AND_YACC(V_LEX, V_YACC)
+
+AC_CHECK_LIB(m, main)
+AC_CHECK_LIB(nsl, main)
+AC_CHECK_LIB(socket, main)
+
+AC_LBL_DEVEL(V_CCOPT)
+if test -f .devel ; then
+	AC_DEFINE(DEBUG)
+fi
+
+if test -r lbl/gnuc.h ; then
+	rm -f gnuc.h
+	ln -s lbl/gnuc.h gnuc.h
+fi
+
+AC_SUBST(LDFLAGS)
+AC_SUBST(LIBS)
+AC_SUBST(V_CCOPT)
+AC_SUBST(V_INCLS)
+AC_SUBST(V_LEX)
+AC_SUBST(V_YACC)
+
+AC_CONFIG_FILES(Makefile)
+AC_OUTPUT
+
+if test -f .devel ; then
+	make depend
+fi
+
+exit 0
