@@ -1,6 +1,8 @@
 # graf
 historical graphing tool ported to typescript/electron
 
+![graf screenshot](docs/screen-shot.png)
+
 The original C/Xlib source is in [LBL](LBL).  This is a straight port of
 it: same data format, command line flags, mouse gestures and keystrokes.
 
