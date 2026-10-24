@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "bundler",
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "types": [],
+    "strict": true,
+    "skipLibCheck": true,
+    "rootDir": "src/renderer",
+    "outDir": "dist/renderer",
+    "tsBuildInfoFile": "dist/.renderer.tsbuildinfo"
+  },
+  "include": [
+    "src/renderer"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.common.json"
+    }
+  ]
+}

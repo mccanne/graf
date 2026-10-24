@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "emitDeclarationOnly": true,
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "types": [],
+    "strict": true,
+    "rootDir": "src/common",
+    "outDir": "dist/common",
+    "tsBuildInfoFile": "dist/.common.tsbuildinfo"
+  },
+  "include": ["src/common"]
+}

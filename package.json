@@ -1,0 +1,35 @@
+{
+  "name": "graf",
+  "version": "1.0.0",
+  "description": "The LBL graph tool (an xgraph descendant), ported to TypeScript and Electron",
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "Steven McCanne",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mccanne/graf.git"
+  },
+  "main": "dist/main/main.js",
+  "bin": {
+    "graf": "bin/graf.js"
+  },
+  "files": [
+    "bin",
+    "dist/main/*.js",
+    "dist/renderer/*.js",
+    "index.html",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "tsc -b --clean",
+    "watch": "tsc -b --watch",
+    "start": "tsc -b && electron ."
+  },
+  "dependencies": {
+    "electron": "^39.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^6.0.0"
+  }
+}
